@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux指令, Hexo">
+    <meta name="keywords" content="Linux指令, MyBlog">
     <meta name="description" content="连接云服务器：1.连接服务器:    ssh  root@ip地址2.退出:  logout
 Linux指令系统：
 命令名称 [命名参数] [命令对象]
@@ -16,7 +16,7 @@ Linux指令系统：
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Linux指令 | Hexo</title>
+    <title>Linux指令 | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -28,7 +28,7 @@ Linux指令系统：
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -40,9 +40,7 @@ Linux指令系统：
                 <div class="brand-logo">
                     <a href="/" class="waves-effect waves-light">
                         
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">Hexo</span>
+                        <span class="logo-span">MyBlog</span>
                     </a>
                 </div>
                 
@@ -116,12 +114,10 @@ Linux指令系统：
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Hexo</div>
+        <div class="logo-name">MyBlog</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            我若成佛天下无魔，我若成魔佛奈我
             
         </div>
     </div>
@@ -197,17 +193,21 @@ Linux指令系统：
     <div class="social-link">
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:xy940232@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=952000694" class="tooltipped" data-tooltip="QQ联系我: 952000694" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
 
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
 </div>
 </div>
 
@@ -301,12 +301,25 @@ Linux指令系统：
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux指令/" target="_blank">
+                                <span class="chip bg-color">Linux指令</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/IT/" class="post-category" target="_blank">
+                                IT
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -366,9 +379,9 @@ Linux指令系统：
 <p>passwd 用户名                            - 修改密码</p>
 <p>su  用户名                                - 切换用户身份</p>
 <p>sudo                                        - 以管理员执行其他程序<br>注意： a.在ubuntu需要将用户添加到sudo分组中，才能使用sudo以管理员的身份执行程序<br>          b.在centOS中需要先执行vi 指令进入sudoers文件中在指定的位置添加内容</p>
-<pre><code>## Allow root to run any commands anywhere
-root    ALL=(ALL)       ALL
-xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
+<pre><code>    ## Allow root to run any commands anywhere
+    root    ALL=(ALL)       ALL
+    xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
 </code></pre><p>2.chmod<br>chmod       权限值   文件            - 修改指定文件的权限</p>
 <p>chmod    [a,u,g,o][+,-][r,w,x]  文件            - 为指定文件，给所有用户添加相应的权限<br>                                              (a:所有，u:自己，g:同组，o:其他；<br>                                            +：添加， -: 取消；<br>                                            r:读，w:写，x:执行)<br>chown  用户名     文件            - 改变文件所有者</p>
 <p>￼</p>
@@ -391,23 +404,23 @@ xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
 <p>5.统计<br>wc -c(字符)/-w(单词)/-l(行)  文件</p>
 <p>6.查找<br>grep  查看对象    目录/文件  参数<br>​<br>    参数：<br>        -i    忽略大小写:         grep you bb.txt   -i<br>        -n   显示行标号：      grep you bb.txt -n   /   grep you bb.txt -i -n<br>        -E   通过正则表达式匹配:     grep -E  ‘正则表达式’  文件<br>        注意： Linux中，正则不支持: \d, \s,\w,\b,\D,\S,\W,\B<br>                                           支持：.   +, *, ?, {N,M}, [], ^, $</p>
 <pre><code>    -v   忽略字段:   grep you bb.txt -v  (在bb.txt中找不包含you的所有行)
-                    grep -E &apos;[0-9]+\.[0-9]+&apos; abb.txt -v
+                    grep -E &#39;[0-9]+\.[0-9]+&#39; abb.txt -v
 
     -rn  递归查找目录，并打印行号
     grep -r  you ./   (在当前文件夹下中所有文件中去找包行’you’的行)
 
 
-    —include=‘*.py’    仅包含 py文件: grep -r you ./ --include=&apos;*.txt&apos;
+    —include=‘*.py’    仅包含 py文件: grep -r you ./ --include=&#39;*.txt&#39;
 
-    —exclude=‘*.js’    不包含 js 文件: grep -r you ./ --exclude=&apos;*.c&apos;
+    —exclude=‘*.js’    不包含 js 文件: grep -r you ./ --exclude=&#39;*.c&#39;
 
 例如：
     grep you bb.txt  
     grep you bb.txt -i
     grep you bb.txt -i -n
-    grep -E &apos;[0-9]+&apos; bb.txt 
+    grep -E &#39;[0-9]+&#39; bb.txt 
 </code></pre><p>find       DIR    -name  ‘<em>.xxx’        找到目录下所有名字匹配的文件:  find a1 -name ‘</em>.txt’(在文件夹a1中找所有txt文件)</p>
-<pre><code>例：find ./ -size +20k -size -100k -name &apos;*.txt&apos;   (找当前目录下大于20k并且小于100k的所有txt文件)
+<pre><code>例：find ./ -size +20k -size -100k -name &#39;*.txt&#39;   (找当前目录下大于20k并且小于100k的所有txt文件)
 </code></pre><p>which  指令        - 精确查找当前可执行的指令<br>whereis  指令    - 查找所有匹配的命令</p>
 <p>四、网络管理</p>
 <p>ifconfig     查看网卡状态</p>
@@ -573,7 +586,7 @@ xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
                     <span class="reprint-tip">
                         <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
                     </span>
-                    <a href="http://yoursite.com" class="b-link-green">Hexo</a>
+                    <a href="http://yoursite.com" class="b-link-green">MyBlog</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2019/02/20/Linux指令/" class="b-link-green">Linux指令</a>
                 </p>
@@ -598,36 +611,47 @@ xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/02/20/Linux指令/">
+                <a href="/2019/02/21/MySQL配置/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Linux指令">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="MySQL配置">
                         
-                        <span class="card-title">Linux指令</span>
+                        <span class="card-title">MySQL配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">连接云服务器：1.连接服务器:    ssh  root@ip地址2.退出:  logout
-Linux指令系统：
-命令名称 [命名参数] [命令对象]
-一、日常操作1.cd指令       - 进入指定文件夹cd  目录     - 进入</div>
+                    <div class="summary">MySQL配置  
+
+下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm  
+
+安装MySQL源: yum locali</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-21
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            John Doe
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/IT/" class="post-category" target="_blank">
+                                    IT
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL配置/" target="_blank">
+                        <span class="chip bg-color">MySQL配置</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -655,11 +679,23 @@ Linux指令系统：
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            John Doe
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/IT/" class="post-category" target="_blank">
+                                    IT
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/helloWord/" target="_blank">
+                        <span class="chip bg-color">helloWord</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -684,7 +720,7 @@ Linux指令系统：
 
             
 
-            
+            <!--
 			
                 <br>
                 
@@ -699,23 +735,27 @@ Linux指令系统：
                     次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
                 </span>
                 
-            
+            -->
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+        <!--<div class="col s12 m4 l4 social-link social-statis">
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:xy940232@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=952000694" class="tooltipped" data-tooltip="QQ联系我: 952000694" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
 
-</div>
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>-->
     </div>
 </footer>
 

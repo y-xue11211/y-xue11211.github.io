@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MyBlog</title>
+  
+  <subtitle>一念之间</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-02-21T11:09:04.938Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>yi xue</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL配置</title>
+    <link href="http://yoursite.com/2019/02/21/MySQL%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2019/02/21/MySQL配置/</id>
+    <published>2019-02-21T11:08:15.745Z</published>
+    <updated>2019-02-21T11:09:04.938Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;MySQL配置  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;下载MySQL源安装包: &lt;code&gt;wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm&lt;/code&gt; 
+        
+      
+    
+    </summary>
+    
+      <category term="IT" scheme="http://yoursite.com/categories/IT/"/>
+    
+    
+      <category term="MySQL配置" scheme="http://yoursite.com/tags/MySQL%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux指令</title>
+    <link href="http://yoursite.com/2019/02/20/Linux%E6%8C%87%E4%BB%A4/"/>
+    <id>http://yoursite.com/2019/02/20/Linux指令/</id>
+    <published>2019-02-20T09:56:52.088Z</published>
+    <updated>2019-02-21T11:09:13.442Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;连接云服务器：&lt;br&gt;1.连接服务器:    ssh  root@ip地址&lt;br&gt;2.退出:  logout&lt;/p&gt;
+&lt;p&gt;Linux指令系统：&lt;/p&gt;
+&lt;p&gt;命令名称 [命名参数] [命令对象]&lt;/p&gt;
+&lt;p&gt;一、日常操作&lt;br&gt;1.cd指令       -
+        
+      
+    
+    </summary>
+    
+      <category term="IT" scheme="http://yoursite.com/categories/IT/"/>
+    
+    
+      <category term="Linux指令" scheme="http://yoursite.com/tags/Linux%E6%8C%87%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/02/18/hello-world/"/>
+    <id>http://yoursite.com/2019/02/18/hello-world/</id>
+    <published>2019-02-18T09:25:10.288Z</published>
+    <updated>2019-02-21T11:09:24.400Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="IT" scheme="http://yoursite.com/categories/IT/"/>
+    
+    
+      <category term="helloWord" scheme="http://yoursite.com/tags/helloWord/"/>
+    
+  </entry>
+  
+</feed>

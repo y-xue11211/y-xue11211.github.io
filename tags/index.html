@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Tags, Hexo">
-    <meta name="description" content="Tags | Hexo">
+    <meta name="keywords" content="Tags, MyBlog">
+    <meta name="description" content="Tags | MyBlog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Tags | Hexo</title>
+    <title>Tags | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -37,9 +37,7 @@
                 <div class="brand-logo">
                     <a href="/" class="waves-effect waves-light">
                         
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">Hexo</span>
+                        <span class="logo-span">MyBlog</span>
                     </a>
                 </div>
                 
@@ -113,12 +111,10 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Hexo</div>
+        <div class="logo-name">MyBlog</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            我若成佛天下无魔，我若成魔佛奈我
             
         </div>
     </div>
@@ -194,17 +190,21 @@
     <div class="social-link">
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:xy940232@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=952000694" class="tooltipped" data-tooltip="QQ联系我: 952000694" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
 
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
 </div>
 </div>
 
@@ -275,13 +275,13 @@
                 <div class="brand">
                     <div class="title center-align">
                     
-                        subtitle
+                        一念之间
                     
                     </div>
 
                     <div class="description center-align">
                     
-                        This is your root _config.yml 'description' value.
+                        我若成佛天下无魔，我若成魔佛奈我
                     
                     </div>
                 </div>
@@ -308,11 +308,58 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             </div>
             <div class="tag-chips">
                 
+                
+                <a href="/tags/MySQL配置/" title="MySQL配置: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="MySQL配置" style="background-color: #F9EBEA;">MySQL配置
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/helloWord/" title="helloWord: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="helloWord" style="background-color: #F5EEF8;">helloWord
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Linux指令/" title="Linux指令: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Linux指令" style="background-color: #D5F5E3;">Linux指令
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
 </div>
 
+    
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"MySQL配置","weight":1,"link":"http://yoursite.com/tags/MySQL配置/"},{"text":"helloWord","weight":1,"link":"http://yoursite.com/tags/helloWord/"},{"text":"Linux指令","weight":1,"link":"http://yoursite.com/tags/Linux指令/"}], {
+        autoResize: true
+    });
+</script>
     
 
 </main>
@@ -326,7 +373,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
 
-            
+            <!--
 			
                 <br>
                 
@@ -341,23 +388,27 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
                 </span>
                 
-            
+            -->
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+        <!--<div class="col s12 m4 l4 social-link social-statis">
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:xy940232@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=952000694" class="tooltipped" data-tooltip="QQ联系我: 952000694" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
 
-</div>
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>-->
     </div>
 </footer>
 
