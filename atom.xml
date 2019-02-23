@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-21T11:09:04.938Z</updated>
+  <updated>2019-02-23T03:24:13.632Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Nginx服务器</title>
+    <link href="http://yoursite.com/2019/02/23/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2019/02/23/Nginx服务器安装/</id>
+    <published>2019-02-23T02:55:45.583Z</published>
+    <updated>2019-02-23T03:24:13.632Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Nginx服务器&quot;&gt;&lt;a href=&quot;#Nginx服务器&quot; class=&quot;headerlink&quot; title=&quot;Nginx服务器&quot;&gt;&lt;/a&gt;Nginx服务器&lt;/h1&gt;&lt;h3 id=&quot;1-阿里云添加80端口&quot;&gt;&lt;a href=&quot;#1-阿里云添加80端口&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="web" scheme="http://yoursite.com/categories/web/"/>
+    
+    
+      <category term="Hexo博客搭建" scheme="http://yoursite.com/tags/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git常用指令</title>
+    <link href="http://yoursite.com/2019/02/23/git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
+    <id>http://yoursite.com/2019/02/23/git常用指令/</id>
+    <published>2019-02-23T02:46:28.505Z</published>
+    <updated>2019-02-23T03:04:11.343Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;git常用指令&quot;&gt;&lt;a href=&quot;#git常用指令&quot; class=&quot;headerlink&quot; title=&quot;git常用指令&quot;&gt;&lt;/a&gt;git常用指令&lt;/h1&gt;&lt;h2 id=&quot;1-基本指令&quot;&gt;&lt;a href=&quot;#1-基本指令&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="git常用指令" scheme="http://yoursite.com/tags/git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL配置</title>
     <link href="http://yoursite.com/2019/02/21/MySQL%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2019/02/21/MySQL配置/</id>
     <published>2019-02-21T11:08:15.745Z</published>
-    <updated>2019-02-21T11:09:04.938Z</updated>
+    <updated>2019-02-23T01:41:20.708Z</updated>
     
     <summary type="html">
     
@@ -37,7 +89,7 @@
     
     </summary>
     
-      <category term="IT" scheme="http://yoursite.com/categories/IT/"/>
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
       <category term="MySQL配置" scheme="http://yoursite.com/tags/MySQL%E9%85%8D%E7%BD%AE/"/>
@@ -49,7 +101,7 @@
     <link href="http://yoursite.com/2019/02/20/Linux%E6%8C%87%E4%BB%A4/"/>
     <id>http://yoursite.com/2019/02/20/Linux指令/</id>
     <published>2019-02-20T09:56:52.088Z</published>
-    <updated>2019-02-21T11:09:13.442Z</updated>
+    <updated>2019-02-23T03:02:49.002Z</updated>
     
     <summary type="html">
     
@@ -57,16 +109,16 @@
       
         
         
-          &lt;p&gt;连接云服务器：&lt;br&gt;1.连接服务器:    ssh  root@ip地址&lt;br&gt;2.退出:  logout&lt;/p&gt;
-&lt;p&gt;Linux指令系统：&lt;/p&gt;
+          &lt;p&gt;连接云服务器：&lt;br&gt;1.连接服务器: &lt;code&gt;ssh  root@ip地址&lt;/code&gt;&lt;br&gt;&lt;br&gt;2.退出:  logout&lt;/p&gt;
+&lt;p&gt;#Linux指令系统：&lt;/p&gt;
 &lt;p&gt;命令名称 [命名参数] [命令对象]&lt;/p&gt;
-&lt;p&gt;一、日常操作&lt;br&gt;1.cd指令       -
+&lt;h2 id=&quot;一、日常操作&quot;&gt;&lt;a
         
       
     
     </summary>
     
-      <category term="IT" scheme="http://yoursite.com/categories/IT/"/>
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
       <category term="Linux指令" scheme="http://yoursite.com/tags/Linux%E6%8C%87%E4%BB%A4/"/>
