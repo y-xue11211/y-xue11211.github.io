@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>MyBlog</title>
+  <title>一念之间</title>
   
   <subtitle>一念之间</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-23T03:42:54.936Z</updated>
+  <updated>2019-02-23T03:51:34.453Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>yi xue</name>
+    <name>薛毅</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vim编辑器之神</title>
+    <link href="http://yoursite.com/2019/02/23/vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9E/"/>
+    <id>http://yoursite.com/2019/02/23/vim编辑器之神/</id>
+    <published>2019-02-23T03:51:43.015Z</published>
+    <updated>2019-02-23T03:51:34.453Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;vim编辑器之神&quot;&gt;&lt;a href=&quot;#vim编辑器之神&quot; class=&quot;headerlink&quot; title=&quot;vim编辑器之神&quot;&gt;&lt;/a&gt;vim编辑器之神&lt;/h1&gt;&lt;h3 id=&quot;配置vimrc配置&quot;&gt;&lt;a href=&quot;#配置vimrc配置&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="vim编辑器之神" scheme="http://yoursite.com/tags/vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9E/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx服务器</title>
