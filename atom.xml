@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-23T03:51:34.453Z</updated>
+  <updated>2019-02-25T11:43:50.922Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sql语句</title>
+    <link href="http://yoursite.com/2019/02/25/sql%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://yoursite.com/2019/02/25/sql语句/</id>
+    <published>2019-02-25T11:01:46.508Z</published>
+    <updated>2019-02-25T11:43:50.922Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SQL语法&quot;&gt;&lt;a href=&quot;#SQL语法&quot; class=&quot;headerlink&quot; title=&quot;SQL语法&quot;&gt;&lt;/a&gt;SQL语法&lt;/h1&gt;&lt;p&gt;DDL(数据定义语言)&lt;br&gt;DML(数据操作语言）&lt;br&gt;DCL(数据控制语言)&lt;br&gt;注意:
+        
+      
+    
+    </summary>
+    
+      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
+    
+    
+      <category term="sql语句" scheme="http://yoursite.com/tags/sql%E8%AF%AD%E5%8F%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>vim编辑器之神</title>
