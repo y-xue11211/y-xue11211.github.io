@@ -395,11 +395,12 @@ SELECT * FROM t_student ORDER BY stuid DESC;  -- 按学号降序排序
 <pre><code>SELECT * FROM t_student LIMIT 3;   -- 获取查询结果的前3条记录
 </code></pre><p>select * from 表名 limit M offset N;   – 对查询结果跳过前N条数据，取M条数据出来  </p>
 <pre><code>SELECT * FROM t_student LIMIT 3 offset 4;  -- 跳过前4数据，然后取3条数据
-</code></pre><p>##基础补充<br>1.条件语句的写法<br>在SQL中可以通过 where+条件语句 来对操作对象进行筛选 - 筛选<br>a. 比较运算符： =, &lt;&gt;, &gt;, &lt;, &gt;=, &lt;=<br>注意: 判断一个字段的值是否为空不用使用=和&lt;&gt;, 而是使用<code>is null</code> 和 <code>is not null</code><br><code>SELECT addr FROM t_student;</code><br><code>SELECT stuname FROM t_student WHERE addr is NULL;     -- 判断是否为NULL（空）</code><br><code>SELECT stuname FROM t_student WHERE addr=&#39;&#39;;     -- 判断是否是空串</code><br><br>b. 逻辑运算符: and, or, not <br><br>c. where 字段名  between 值1 and 值2   –  筛选指定的字段的值在值1和值2之间<br><code>SELECT stuname,birth FROM t_student WHERE birth BETWEEN &#39;1990-1-1&#39; AND &#39;1999-12-31&#39;;</code><br>d. where 字段名 in 集合   – 筛选出字段值是集合中的元素;(集合是使用括号括起来里面多个值)<br><code>SELECT * FROM t_student WHERE stuname in (&#39;小花&#39;, &#39;小明&#39;, &#39;路飞&#39;);</code><br><br>e. like操作<br><br>2.数据类型<br><br>varchar(size): 不定长字符串，size决定的是最大长度<br><br>char(size): 定长字符 <br><br>text: 不限长度(最大是255个字符)<br><br>int/tinyint(-128~127)<br><br>FLOAT(size,d)/DOUBLE(size,d)  - 这儿的size和d的值都有约束效果<br><br>bit: 只有0和1两个值<br><br>date/datetime/time: 值可以是时间函数的结果，也可以时间字符串；计算或者是比较的时候内部是按时间处理的<br></p>
+</code></pre><h2 id="基础补充"><a href="#基础补充" class="headerlink" title="基础补充"></a>基础补充</h2><p>1.条件语句的写法<br>在SQL中可以通过 where+条件语句 来对操作对象进行筛选 - 筛选<br>a. 比较运算符： =, &lt;&gt;, &gt;, &lt;, &gt;=, &lt;=<br>注意: 判断一个字段的值是否为空不用使用=和&lt;&gt;, 而是使用<code>is null</code> 和 <code>is not null</code><br><code>SELECT addr FROM t_student;</code><br><code>SELECT stuname FROM t_student WHERE addr is NULL;     -- 判断是否为NULL（空）</code><br><code>SELECT stuname FROM t_student WHERE addr=&#39;&#39;;     -- 判断是否是空串</code><br><br>b. 逻辑运算符: and, or, not <br><br>c. where 字段名  between 值1 and 值2   –  筛选指定的字段的值在值1和值2之间<br><code>SELECT stuname,birth FROM t_student WHERE birth BETWEEN &#39;1990-1-1&#39; AND &#39;1999-12-31&#39;;</code><br>d. where 字段名 in 集合   – 筛选出字段值是集合中的元素;(集合是使用括号括起来里面多个值)<br><code>SELECT * FROM t_student WHERE stuname in (&#39;小花&#39;, &#39;小明&#39;, &#39;路飞&#39;);</code><br><br>e. like操作<br><br>2.数据类型<br><br>varchar(size): 不定长字符串，size决定的是最大长度<br><br>char(size): 定长字符 <br><br>text: 不限长度(最大是255个字符)<br><br>int/tinyint(-128~127)<br><br>FLOAT(size,d)/DOUBLE(size,d)  - 这儿的size和d的值都有约束效果<br><br>bit: 只有0和1两个值<br><br>date/datetime/time: 值可以是时间函数的结果，也可以时间字符串；计算或者是比较的时候内部是按时间处理的<br></p>
 <pre><code>UPDATE t_student SET tel=&#39;1367819230&#39;;
 ALTER TABLE t_student ADD COLUMN intro VARCHAR(10);
 SELECT * FROM t_student; 
-</code></pre><p>3.去重<br><br><code>SELECT DISTINCT addr FROM t_student;</code><br>##添加约束<br>1.创建表的时候添加约束</p>
+</code></pre><p>3.去重<br><br><code>SELECT DISTINCT addr FROM t_student;</code></p>
+<h2 id="添加约束"><a href="#添加约束" class="headerlink" title="添加约束"></a>添加约束</h2><p>1.创建表的时候添加约束</p>
 <pre><code>CREATE TABLE if not EXISTS t_college
 (
 collid int, 
@@ -408,8 +409,8 @@ website VARCHAR(1024),
 intro VARCHAR(200),
 PRIMARY KEY(collid)
 );
-</code></pre><p>2.通过添加约束索引的方式添加约束<br><br>a.添加约束<br><br>alter table 表名 add constraint 索引名 约束 (字段名);<br><br>说明: 索引名 - 自己随便命名，用来指向当前添加的约束； 约束 - 需要添加的约束(支持唯一约束、主键约束和外键约束)<br><code>ALTER TABLE t_college ADD CONSTRAINT con_website UNIQUE (website); -给t_college表中的website添加unique约束，约束索引为con_website</code><br>b.删除约束<br>alter table 表名 drop index 约束索引;<br><br><code>ALTER TABLE t_college DROP index con_website;</code><br>##外键和E.R图</p>
-</li>
+</code></pre><p>2.通过添加约束索引的方式添加约束<br><br>a.添加约束<br><br>alter table 表名 add constraint 索引名 约束 (字段名);<br><br>说明: 索引名 - 自己随便命名，用来指向当前添加的约束； 约束 - 需要添加的约束(支持唯一约束、主键约束和外键约束)<br><code>ALTER TABLE t_college ADD CONSTRAINT con_website UNIQUE (website); -给t_college表中的website添加unique约束，约束索引为con_website</code><br>b.删除约束<br>alter table 表名 drop index 约束索引;<br><br><code>ALTER TABLE t_college DROP index con_website;</code></p>
+<h2 id="外键和E-R图"><a href="#外键和E-R图" class="headerlink" title="外键和E.R图"></a>外键和E.R图</h2></li>
 <li>什么是外键：表中的某个字段的值是根据其他表中主键的值来确定的。那么这个字段就是外键<br><br>1.1 多对一的外键的添加： 将外键添加到多的一方对应的表中<br>一对一的外键的添加： 将外键随便添加到哪一方，同时添加值唯一约束<br>多对多的外键的添加： 关系型数据库中，两张表没法实现多多的关系，需要一个中间表。(中间表有两个外键分别参照多多的两个表的主键)<br><br>1.2 怎么添加外键：<br><br>a.添加外键对应的字段<br><code>alter TABLE tb_student add COLUMN collid int;</code><br>b.给设计好的外键对应的字段添加外键约束<br><br>alter table 表1 add constraint 索引名 foreign key (字段1) references 表2 (字段2);将表1中的字段1设置为外键，并且让这个外键的值参照表2中的字段2<pre><code>ALTER TABLE tb_student ADD CONSTRAINT fk_collid_stu 
 FOREIGN KEY (collid) 
 REFERENCES  tb_college (collid);
@@ -421,7 +422,7 @@ REFERENCES tb_student (stuid);
 </code></pre>添加课程的外键约束<pre><code>ALTER TABLE tb_score ADD CONSTRAINT fk_couid_score 
 FOREIGN KEY (couid) 
 REFERENCES tb_course (couid);
-</code></pre>##查询的高级操作<br>1.聚合：max()/min()/sum()/avg()/count()<br><br>SELECT 聚合函数(字段) FROM 表名 WHERE 条件;   – 按条件多表查询指定字段数据，然后将查询结果做相应的聚合运算。聚合运算的结果是最后结果<pre><code>SELECT mark FROM tb_score;    -- 获取tb_score表中的所有分数值
+</code></pre><h2 id="查询的高级操作"><a href="#查询的高级操作" class="headerlink" title="查询的高级操作"></a>查询的高级操作</h2>1.聚合：max()/min()/sum()/avg()/count()<br><br>SELECT 聚合函数(字段) FROM 表名 WHERE 条件;   – 按条件多表查询指定字段数据，然后将查询结果做相应的聚合运算。聚合运算的结果是最后结果<pre><code>SELECT mark FROM tb_score;    -- 获取tb_score表中的所有分数值
 SELECT max(mark) as maxmark FROM tb_score;      -- 获取tb_score表中所有分数的最大值
 SELECT min(mark) FROM tb_score; 
 SELECT sum(mark) FROM tb_score; 
@@ -434,7 +435,7 @@ SELECT stuname FROM tb_student WHERE stuid in
 SELECT stuid,mark FROM tb_score WHERE mark &gt; 90 and stuid is  not NULL;
 -- 将一个查询的结果作为查询对象提供给另外一个查询。但是第一个查询结果需要重命名
 SELECT mark FROM (SELECT stuid,mark FROM tb_score WHERE mark &gt; 90 and stuid is  not NULL) as t2;
-</code></pre>##连接查询<br>1.接连查询: 同时查询多个表中的数据<br><br>SELECT * FROM 表名1,表名2… WHERE 连接条件;<br><br>连接查询如果不加连接条件，结果是一个笛卡尔积：（a,b,c）(1,2,3) –&gt; (a1,a2,a3,b1,b2,b3,c1,c2,c3)<pre><code>-- 查询每个老师对应的学院
+</code></pre><h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2>1.接连查询: 同时查询多个表中的数据<br><br>SELECT * FROM 表名1,表名2… WHERE 连接条件;<br><br>连接查询如果不加连接条件，结果是一个笛卡尔积：（a,b,c）(1,2,3) –&gt; (a1,a2,a3,b1,b2,b3,c1,c2,c3)<pre><code>-- 查询每个老师对应的学院
 SELECT teaname, collname FROM tb_college, tb_teacher WHERE tb_teacher.collid=tb_college.collid;
 -- 查询学生姓名对应的学科名的分数  
 SELECT stuname, couname, mark FROM tb_student, tb_course, tb_score 
@@ -463,7 +464,7 @@ WHERE mark &lt; 60;
 </code></pre>3.外连接<br><br>外连接分为左外连接、右外连接和全连接， 但是在MySQL中支持左外连接和右外连接<br><br>表1(左表) left/right/inner join 表2(右表)<br><br>– 左外连接：将左表中对应字段的所有数据取出，然后再对应的右表中字段的值，如果右表对应的值不存在结果就为null <br><br>– 右外连接：将右表中对应字段的所有数据取出，然后再对应的左表中字段的值，如果左表对应的值不存在结果就为null<pre><code>-- 查所有学生名对应的成绩 
 -- SELECT stuname, mark FROM tb_score INNER JOIN tb_student ON tb_student.stuid=tb_score.stuid;
 SELECT stuname, mark FROM tb_score  RIGHT JOIN tb_student ON tb_student.stuid=tb_score.stuid; 
-</code></pre>##字段索引<br>字段的索引就相当于于目录，作用是为了能够快速的对这个字段进行查找<br><br>添加索引的好处是可以大大的提高查询效率； 缺点是：1.会消耗额外的存储空间， 2.会让添加和删除的效率降低<br><br>建议: 1.索引不能滥用  2.如果项目中针对某个字段的查询很频繁，建议加个对应的索引<br><br>添加索引: create index 索引名称 on 表名 (字段名);  - 给指定表中的指定字段添加索引<pre><code>CREATE INDEX index_stuname on tb_student (stuname);   -- 给名字加索引
+</code></pre><h2 id="字段索引"><a href="#字段索引" class="headerlink" title="字段索引"></a>字段索引</h2>字段的索引就相当于于目录，作用是为了能够快速的对这个字段进行查找<br><br>添加索引的好处是可以大大的提高查询效率； 缺点是：1.会消耗额外的存储空间， 2.会让添加和删除的效率降低<br><br>建议: 1.索引不能滥用  2.如果项目中针对某个字段的查询很频繁，建议加个对应的索引<br><br>添加索引: create index 索引名称 on 表名 (字段名);  - 给指定表中的指定字段添加索引<pre><code>CREATE INDEX index_stuname on tb_student (stuname);   -- 给名字加索引
 CREATE INDEX index_stuname1 on tb_student (stuname(1));    -- 按姓加索引
 ALTER TABLE tb_student DROP INDEX index_stuname;     -- 删除索引
 EXPLAIN SELECT * FROM tb_student WHERE stuid=110;
