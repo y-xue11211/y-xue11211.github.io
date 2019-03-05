@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-28T12:30:21.452Z</updated>
+  <updated>2019-03-05T11:29:37.938Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>flask</title>
+    <link href="http://yoursite.com/2019/03/05/flaskday1/"/>
+    <id>http://yoursite.com/2019/03/05/flaskday1/</id>
+    <published>2019-03-05T01:34:38.080Z</published>
+    <updated>2019-03-05T11:29:37.938Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;flask&quot;&gt;&lt;a href=&quot;#flask&quot; class=&quot;headerlink&quot; title=&quot;flask&quot;&gt;&lt;/a&gt;flask&lt;/h1&gt;&lt;h2 id=&quot;1-flask介绍&quot;&gt;&lt;a href=&quot;#1-flask介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="flask" scheme="http://yoursite.com/categories/flask/"/>
+    
+    
+      <category term="flask基础" scheme="http://yoursite.com/tags/flask%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>redis基础</title>

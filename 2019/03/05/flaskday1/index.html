@@ -4,9 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="redis基础, 一念之间">
-    <meta name="description" content="1.安装redis [root@iZwz97tbgo9lkabnat2lo8Z ~]# wget http://download.redis.io/releases/redis-3.2.12.tar.gz
-[root@iZwz97tbgo9">
+    <meta name="keywords" content="flask, 一念之间">
+    <meta name="description" content="flask1.flask介绍Flask是一个基于Python实现的web开发的’微’框架flask流行的主要原因：
+a）有非常齐全的官方文档，上手非常方便
+b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>redis基础 | 一念之间</title>
+    <title>flask | 一念之间</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -273,13 +274,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        redis基础
+                        flask
                     </div>
                 </div>
             </div>
@@ -301,8 +302,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/redis基础/" target="_blank">
-                                <span class="chip bg-color">redis基础</span>
+                            <a href="/tags/flask基础/" target="_blank">
+                                <span class="chip bg-color">flask基础</span>
                             </a>
                         
                     </div>
@@ -313,8 +314,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/redis/" class="post-category" target="_blank">
-                                redis
+                            <a href="/categories/flask/" class="post-category" target="_blank">
+                                flask
                             </a>
                         
                     </div>
@@ -325,7 +326,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-02-28
+                    2019-03-05
                 </div>
 
                 
@@ -341,20 +342,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-安装redis"><a href="#1-安装redis" class="headerlink" title="1.安装redis"></a>1.安装redis</h2><pre><code> [root@iZwz97tbgo9lkabnat2lo8Z ~]# wget http://download.redis.io/releases/redis-3.2.12.tar.gz
-[root@iZwz97tbgo9lkabnat2lo8Z ~]# gunzip redis-3.2.12.tar.gz
-[root@iZwz97tbgo9lkabnat2lo8Z ~]# tar -xvf redis-3.2.12.tar
-[root@iZwz97tbgo9lkabnat2lo8Z ~]# cd redis-3.2.12
-[root@iZwz97tbgo9lkabnat2lo8Z ~]# make &amp;&amp; make install
-[root@iZwz97tbgo9lkabnat2lo8Z ~]# redis-server --version
-Redis server v=3.2.12 sha=00000000:0 malloc=jemalloc-4.0.3 bits=64 build=5bc5cd3c03d6ceb6
-[root@iZwz97tbgo9lkabnat2lo8Z ~]# redis-cli --version
-redis-cli 3.2.12
-</code></pre><h2 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2.修改配置文件"></a>2.修改配置文件</h2><p><img src="http://pnmylgp4e.bkt.clouddn.com/%E6%89%93%E5%8D%A1%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81.png?e=1551359911&amp;token=U4ZvHoiOROnXYeqjiALXaJmaAjyTqs8fdmWh9Kdc:lTUvqyQuYV5KxmI0BCQCbKB9FaY" alt="打开密码验证"><br><img src="http://pnmylgp4e.bkt.clouddn.com/%E7%BB%91%E5%AE%9Aip%E5%9C%B0%E5%9D%80.png?e=1551359911&amp;token=U4ZvHoiOROnXYeqjiALXaJmaAjyTqs8fdmWh9Kdc:BD1IouwJk4XLmSVeZGkkYh-kfD8" alt="绑定ip地址"><br><img src="http://pnmylgp4e.bkt.clouddn.com/%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96.png?e=1551359911&amp;token=U4ZvHoiOROnXYeqjiALXaJmaAjyTqs8fdmWh9Kdc:pyMIwQdhAmi-C4itn7up4MIwDfs" alt="打开数据持久化"><br><img src="http://pnmylgp4e.bkt.clouddn.com/%E8%AE%BE%E7%BD%AE%E7%AB%AF%E5%8F%A3.png?e=1551359911&amp;token=U4ZvHoiOROnXYeqjiALXaJmaAjyTqs8fdmWh9Kdc:8JAHaXgE20b7c0KHI5uMacX7mEM" alt="设置端口"></p>
-<h2 id="3-启动redis"><a href="#3-启动redis" class="headerlink" title="3.启动redis"></a>3.启动redis</h2><h4 id="1-启动redis服务器"><a href="#1-启动redis服务器" class="headerlink" title="1.启动redis服务器"></a>1.启动redis服务器</h4><p>redis-server redis.conf     – 启动redis服务<br><br>redis-server redis.conf &amp;   – 启动redis服务并且在后台运行<br><br>redis-server redis.conf &gt;&gt; redis.log &amp;   – 启动redis服务并且在后台运行,并且输出重定向   </p>
-<h4 id="2-启动redis客户端"><a href="#2-启动redis客户端" class="headerlink" title="2.启动redis客户端"></a>2.启动redis客户端</h4><p>redis-cli -h ip地址  </p>
-<h2 id="4-redis指令"><a href="#4-redis指令" class="headerlink" title="4.redis指令"></a>4.redis指令</h2><p>—-字符串常用操作<br>set key value    – 添加键值对、如果key存在就修改key对应的值<br>setnx key value  – 如果key不存在就添加键值对<br>setex key 时间 value  – 添加键值对并且设置存活时间<br>set key value ex 时间   – 添加键值对并且设置超时时间<br>mset key1 value1 key2 value2 …   – 同时添加多个键值对<br>mget key1 key2 …        –同时获取多个key的值<br>get key              – 查看key对应的值<br>keys *                 – 查看所有的key<br>del key1 key2         – 删除键值对<br>exists key         – 检测键值对是否存在<br>flushall              – 删除所有数据库的所有键值对<br>flushdb              – 删除当前数据库中所有键值对<br>select 标号       – redis默认启动16个数据库对应的标号是0-15<br>ttl key              – 查看剩余时间<br>expire key 时间   – 设置键值对存活时间<br>incr key         – 数值增加1<br>decr key             – 数值减少<br>append key 值     –key对应的字符串类型的值后追加指定的值  </p>
-<p>quit        – 退出</p>
+                <h1 id="flask"><a href="#flask" class="headerlink" title="flask"></a>flask</h1><h2 id="1-flask介绍"><a href="#1-flask介绍" class="headerlink" title="1.flask介绍"></a>1.flask介绍</h2><p>Flask是一个基于Python实现的web开发的’微’框架<br><br>flask流行的主要原因：</p>
+<p>a）有非常齐全的官方文档，上手非常方便</p>
+<p>b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手实现拓展也很容易</p>
+<p>c) 微型框架的形式给了开发者更大的选择空间</p>
+<h2 id="2-环境安装"><a href="#2-环境安装" class="headerlink" title="2.环境安装"></a>2.环境安装</h2><ol>
+<li>使用virtualenv创建<br><br>安装: <code>pip install virtualenv</code><br><br>创建虚拟环境: <code>virtualenv --no-site-packages -p D:\python37\python.exe flaskenv9</code><br><br>激活环境:<br><br>win: <code>cd flaskenv9/Scripts    执行activate</code><br>Linux/Mac:<code>source activate</code><br><br>退出环境: <code>deactivate</code></li>
+<li>使用pycharm创建<br><br>创建新工程选择虚拟环境；<h2 id="3-pip的使用"><a href="#3-pip的使用" class="headerlink" title="3.pip的使用"></a>3.pip的使用</h2>查询安装的库: <code>pip list / pip freeze</code><br><br>安装内容: pip install xxx<br><br>安装文件: <code>pip install -r requeirement.txt</code><br>txt文档里可放多个需要安装的文件名<h2 id="4-flask安装与使用"><a href="#4-flask安装与使用" class="headerlink" title="4.flask安装与使用"></a>4.flask安装与使用</h2>安装:  先激活环境，在执行<code>pip install flask</code><h2 id="5-启动flask"><a href="#5-启动flask" class="headerlink" title="5.启动flask"></a>5.启动flask</h2></li>
+<li>flask自带启动方式: app.run(host, port, debug)</li>
+<li>使用flask-script库<br><br>安装flask-script<code>pip install flask-script</code><br><code>from flask_script import Manager   manege = Manager(app)   manage.run()</code><br>启动命令: <code>python xxx.py  runserver -p -h -d</code><h2 id="6-路由规则"><a href="#6-路由规则" class="headerlink" title="6.路由规则"></a>6.路由规则</h2>定义格式: &lt;转换器(类型):参数名&gt;<br><br>转换器:int: 指定整型<br><br>&#8195;&#8195;&#8195;string: 指定字符串，默认类型<br><br>&#8195;&#8195;&#8195;float: 指定浮点类型<br>注意: <code>&lt;string:name&gt;</code> 其实和<code>&lt;name&gt;</code>是一样的<h2 id="7-请求"><a href="#7-请求" class="headerlink" title="7.请求"></a>7.请求</h2></li>
+<li>获取参数<br><br>GET请求:获取参数: <pre><code>request.args 
+request.args.get(&#39;key&#39;)
+</code></pre>POST请求获取参数: <pre><code>request.form
+request.form.get(key) 
+#或者request.form[key]&lt;/br&gt;
+</code></pre>获取多个同样的key对应的vallue值时，使用getlist(key)</li>
+<li>获取请求路径: <code>request.path</code></li>
+<li>请求cookies: <code>request.cookies</code></li>
+<li>获取上传文件: <code>request.files</code><br><br>取值: <code>request.files.get(key)</code>或者 <code>request.files[key]</code><h2 id="8-响应"><a href="#8-响应" class="headerlink" title="8.响应"></a>8.响应</h2>导包: <code>from flask import make_response</code><br>使用: make_response(‘响应内容’, 响应状态码)<h2 id="9-cookie"><a href="#9-cookie" class="headerlink" title="9.cookie"></a>9.cookie</h2>产生场景: 由于HTTP无状态协议, cookie的使用，保存一个令牌（标识符）用于标识用户的登录状态<br><br>令牌的产生: 在登录时向cookie中设置的。<br><br>设置令牌: <code>res = make_response()  res.set_cookie(key,value, max_age)</code><br><br>删除:  <pre><code>res=make_response()   
+res.delete_cookie(key)
+</code></pre>注意:1.cookie不能跨浏览器<br>&#8195;&#8195;2.cookie中设置的参数有字节限制，不能无限的存储参数<h2 id="10-session"><a href="#10-session" class="headerlink" title="10.session"></a>10.session</h2>flask默认存储session的形式，将session数据保存在客户端:<br>&#8195;&#8195;导包: from flask import session<br>&#8195;&#8195;使用: session[key]=value<br>使用flask-session库，将session数据保存在服务器端<pre><code>pip install redis flask-session
+from flask_session import Session 
+app.secret_key = &#39;1234567890&#39;  # 加密复杂程度
+app.config[&#39;SESSION_TYPE&#39;] =&#39;redis&#39;
+app.config[&#39;SESSION_REDIS&#39;] = redis.Redis()
+Session(app)
+</code></pre></li>
+</ol>
 
             </div>
             <hr>
@@ -495,7 +509,7 @@ redis-cli 3.2.12
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">一念之间</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/02/28/redis/" class="b-link-green">redis基础</a>
+                    <a href="/2019/03/05/flaskday1/" class="b-link-green">flask</a>
                 </p>
             </div>
         </div>
@@ -777,7 +791,8 @@ redis-cli 3.2.12
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/03/05/flaskday1/">
                     <div class="card-image">
@@ -793,9 +808,9 @@ redis-cli 3.2.12
 a）有非常齐全的官方文档，上手非常方便
 b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -808,6 +823,7 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -826,29 +842,28 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/02/25/sql语句/">
+                <a href="/2019/02/28/redis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="sql语句">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="redis基础">
                         
-                        <span class="card-title">sql语句</span>
+                        <span class="card-title">redis基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">SQL语法DDL(数据定义语言)DML(数据操作语言）DCL(数据控制语言)注意: SQL中大小写不敏感（大写和小写是一样的）; 每条SQL语句必须以分号结束;
-DDL - 主要提供数据库和表的创建、删除和修改
-删除数据库: drop da</div>
+                    <div class="summary">1.安装redis [root@iZwz97tbgo9lkabnat2lo8Z ~]# wget http://download.redis.io/releases/redis-3.2.12.tar.gz
+[root@iZwz97tbgo9</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-25
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MySQL/" class="post-category" target="_blank">
-                                    MySQL
+                            <a href="/categories/redis/" class="post-category" target="_blank">
+                                    redis
                                 </a>
                             
                             
@@ -858,8 +873,8 @@ DDL - 主要提供数据库和表的创建、删除和修改
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/sql语句/" target="_blank">
-                        <span class="chip bg-color">sql语句</span>
+                    <a href="/tags/redis基础/" target="_blank">
+                        <span class="chip bg-color">redis基础</span>
                     </a>
                     
                 </div>

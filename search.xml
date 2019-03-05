@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>flask</title>
+      <link href="/2019/03/05/flaskday1/"/>
+      <url>/2019/03/05/flaskday1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="flask"><a href="#flask" class="headerlink" title="flask"></a>flask</h1><h2 id="1-flask介绍"><a href="#1-flask介绍" class="headerlink" title="1.flask介绍"></a>1.flask介绍</h2><p>Flask是一个基于Python实现的web开发的’微’框架<br><br>flask流行的主要原因：</p><p>a）有非常齐全的官方文档，上手非常方便</p><p>b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手实现拓展也很容易</p><p>c) 微型框架的形式给了开发者更大的选择空间</p><h2 id="2-环境安装"><a href="#2-环境安装" class="headerlink" title="2.环境安装"></a>2.环境安装</h2><ol><li>使用virtualenv创建<br><br>安装: <code>pip install virtualenv</code><br><br>创建虚拟环境: <code>virtualenv --no-site-packages -p D:\python37\python.exe flaskenv9</code><br><br>激活环境:<br><br>win: <code>cd flaskenv9/Scripts    执行activate</code><br>Linux/Mac:<code>source activate</code><br><br>退出环境: <code>deactivate</code></li><li>使用pycharm创建<br><br>创建新工程选择虚拟环境；<h2 id="3-pip的使用"><a href="#3-pip的使用" class="headerlink" title="3.pip的使用"></a>3.pip的使用</h2>查询安装的库: <code>pip list / pip freeze</code><br><br>安装内容: pip install xxx<br><br>安装文件: <code>pip install -r requeirement.txt</code><br>txt文档里可放多个需要安装的文件名<h2 id="4-flask安装与使用"><a href="#4-flask安装与使用" class="headerlink" title="4.flask安装与使用"></a>4.flask安装与使用</h2>安装:  先激活环境，在执行<code>pip install flask</code><h2 id="5-启动flask"><a href="#5-启动flask" class="headerlink" title="5.启动flask"></a>5.启动flask</h2></li><li>flask自带启动方式: app.run(host, port, debug)</li><li>使用flask-script库<br><br>安装flask-script<code>pip install flask-script</code><br><code>from flask_script import Manager   manege = Manager(app)   manage.run()</code><br>启动命令: <code>python xxx.py  runserver -p -h -d</code><h2 id="6-路由规则"><a href="#6-路由规则" class="headerlink" title="6.路由规则"></a>6.路由规则</h2>定义格式: &lt;转换器(类型):参数名&gt;<br><br>转换器:int: 指定整型<br><br>&#8195;&#8195;&#8195;string: 指定字符串，默认类型<br><br>&#8195;&#8195;&#8195;float: 指定浮点类型<br>注意: <code>&lt;string:name&gt;</code> 其实和<code>&lt;name&gt;</code>是一样的<h2 id="7-请求"><a href="#7-请求" class="headerlink" title="7.请求"></a>7.请求</h2></li><li>获取参数<br><br>GET请求:获取参数: <pre><code>request.args request.args.get(&#39;key&#39;)</code></pre>POST请求获取参数: <pre><code>request.formrequest.form.get(key) #或者request.form[key]&lt;/br&gt;</code></pre>获取多个同样的key对应的vallue值时，使用getlist(key)</li><li>获取请求路径: <code>request.path</code></li><li>请求cookies: <code>request.cookies</code></li><li>获取上传文件: <code>request.files</code><br><br>取值: <code>request.files.get(key)</code>或者 <code>request.files[key]</code><h2 id="8-响应"><a href="#8-响应" class="headerlink" title="8.响应"></a>8.响应</h2>导包: <code>from flask import make_response</code><br>使用: make_response(‘响应内容’, 响应状态码)<h2 id="9-cookie"><a href="#9-cookie" class="headerlink" title="9.cookie"></a>9.cookie</h2>产生场景: 由于HTTP无状态协议, cookie的使用，保存一个令牌（标识符）用于标识用户的登录状态<br><br>令牌的产生: 在登录时向cookie中设置的。<br><br>设置令牌: <code>res = make_response()  res.set_cookie(key,value, max_age)</code><br><br>删除:  <pre><code>res=make_response()   res.delete_cookie(key)</code></pre>注意:1.cookie不能跨浏览器<br>&#8195;&#8195;2.cookie中设置的参数有字节限制，不能无限的存储参数<h2 id="10-session"><a href="#10-session" class="headerlink" title="10.session"></a>10.session</h2>flask默认存储session的形式，将session数据保存在客户端:<br>&#8195;&#8195;导包: from flask import session<br>&#8195;&#8195;使用: session[key]=value<br>使用flask-session库，将session数据保存在服务器端<pre><code>pip install redis flask-sessionfrom flask_session import Session app.secret_key = &#39;1234567890&#39;  # 加密复杂程度app.config[&#39;SESSION_TYPE&#39;] =&#39;redis&#39;app.config[&#39;SESSION_REDIS&#39;] = redis.Redis()Session(app)</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> flask </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> flask基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>redis基础</title>
       <link href="/2019/02/28/redis/"/>
       <url>/2019/02/28/redis/</url>
