@@ -4,10 +4,18 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="flask基础1, 一念之间">
-    <meta name="description" content="flask1.flask介绍Flask是一个基于Python实现的web开发的’微’框架flask流行的主要原因：S
-a）有非常齐全的官方文档，上手非常方便
-b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动">
+    <meta name="keywords" content="flask基础2, 一念之间">
+    <meta name="description" content="Flask基础21.装饰器
+装饰器的作用:在不改变原有功能代码的基础上,添加额外的功能,如用户验证等
+构成装饰器的条件
+
+
+外层函数前套内层函数
+外层函数返回内层函数
+内层函数调用外层函数的参数注意：
+
+
+外层函数传入的参数即为被装饰的函数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +23,7 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>flask基础1 | 一念之间</title>
+    <title>flask基础2 | 一念之间</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -274,13 +282,13 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        flask基础1
+                        flask基础2
                     </div>
                 </div>
             </div>
@@ -302,8 +310,8 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/flask基础1/" target="_blank">
-                                <span class="chip bg-color">flask基础1</span>
+                            <a href="/tags/flask基础2/" target="_blank">
+                                <span class="chip bg-color">flask基础2</span>
                             </a>
                         
                     </div>
@@ -326,7 +334,7 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-05
+                    2019-03-07
                 </div>
 
                 
@@ -342,33 +350,47 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="flask"><a href="#flask" class="headerlink" title="flask"></a>flask</h1><h2 id="1-flask介绍"><a href="#1-flask介绍" class="headerlink" title="1.flask介绍"></a>1.flask介绍</h2><p>Flask是一个基于Python实现的web开发的’微’框架<br><br>flask流行的主要原因：S</p>
-<p>a）有非常齐全的官方文档，上手非常方便</p>
-<p>b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手实现拓展也很容易</p>
-<p>c) 微型框架的形式给了开发者更大的选择空间</p>
-<h2 id="2-环境安装"><a href="#2-环境安装" class="headerlink" title="2.环境安装"></a>2.环境安装</h2><ol>
-<li>使用virtualenv创建<br><br>安装: <code>pip install virtualenv</code><br><br>创建虚拟环境: <code>virtualenv --no-site-packages -p D:\python37\python.exe flaskenv9</code><br><br>激活环境:<br><br>win: <code>cd flaskenv9/Scripts    执行activate</code><br>Linux/Mac:<code>source activate</code><br><br>退出环境: <code>deactivate</code></li>
-<li>使用pycharm创建<br><br>创建新工程选择虚拟环境；<h2 id="3-pip的使用"><a href="#3-pip的使用" class="headerlink" title="3.pip的使用"></a>3.pip的使用</h2>查询安装的库: <code>pip list / pip freeze</code><br><br>安装内容: pip install xxx<br><br>安装文件: <code>pip install -r requeirement.txt</code><br>txt文档里可放多个需要安装的文件名<h2 id="4-flask安装与使用"><a href="#4-flask安装与使用" class="headerlink" title="4.flask安装与使用"></a>4.flask安装与使用</h2>安装:  先激活环境，在执行<code>pip install flask</code><h2 id="5-启动flask"><a href="#5-启动flask" class="headerlink" title="5.启动flask"></a>5.启动flask</h2></li>
-<li>flask自带启动方式: app.run(host, port, debug)</li>
-<li>使用flask-script库<br><br>安装flask-script<code>pip install flask-script</code><br><code>from flask_script import Manager   manege = Manager(app)   manage.run()</code><br>启动命令: <code>python xxx.py  runserver -p -h -d</code><h2 id="6-路由规则"><a href="#6-路由规则" class="headerlink" title="6.路由规则"></a>6.路由规则</h2>定义格式: &lt;转换器(类型):参数名&gt;<br><br>转换器:int: 指定整型<br><br>&#8195;&#8195;&#8195;string: 指定字符串，默认类型<br><br>&#8195;&#8195;&#8195;float: 指定浮点类型<br>注意: <code>&lt;string:name&gt;</code> 其实和<code>&lt;name&gt;</code>是一样的<h2 id="7-请求"><a href="#7-请求" class="headerlink" title="7.请求"></a>7.请求</h2></li>
-<li>获取参数<br><br>GET请求:获取参数: <pre><code>request.args 
-request.args.get(&#39;key&#39;)
-</code></pre>POST请求获取参数: <pre><code>request.form
-request.form.get(key) 
-#或者request.form[key]&lt;/br&gt;
-</code></pre>获取多个同样的key对应的vallue值时，使用getlist(key)</li>
-<li>获取请求路径: <code>request.path</code></li>
-<li>请求cookies: <code>request.cookies</code></li>
-<li>获取上传文件: <code>request.files</code><br><br>取值: <code>request.files.get(key)</code>或者 <code>request.files[key]</code><h2 id="8-响应"><a href="#8-响应" class="headerlink" title="8.响应"></a>8.响应</h2>导包: <code>from flask import make_response</code><br>使用: make_response(‘响应内容’, 响应状态码)<h2 id="9-cookie"><a href="#9-cookie" class="headerlink" title="9.cookie"></a>9.cookie</h2>产生场景: 由于HTTP无状态协议, cookie的使用，保存一个令牌（标识符）用于标识用户的登录状态<br><br>令牌的产生: 在登录时向cookie中设置的。<br><br>设置令牌: <code>res = make_response()  res.set_cookie(key,value, max_age)</code><br><br>删除:  <pre><code>res=make_response()   
-res.delete_cookie(key)
-</code></pre>注意:1.cookie不能跨浏览器<br>&#8195;&#8195;2.cookie中设置的参数有字节限制，不能无限的存储参数<h2 id="10-session"><a href="#10-session" class="headerlink" title="10.session"></a>10.session</h2>flask默认存储session的形式，将session数据保存在客户端:<br>&#8195;&#8195;导包: from flask import session<br>&#8195;&#8195;使用: session[key]=value<br>使用flask-session库，将session数据保存在服务器端<pre><code>pip install redis flask-session
-from flask_session import Session 
-app.secret_key = &#39;1234567890&#39;  # 加密复杂程度
-app.config[&#39;SESSION_TYPE&#39;] =&#39;redis&#39;
-app.config[&#39;SESSION_REDIS&#39;] = redis.Redis()
-Session(app)
-</code></pre></li>
+                <h1 id="Flask基础2"><a href="#Flask基础2" class="headerlink" title="Flask基础2"></a>Flask基础2</h1><h2 id="1-装饰器"><a href="#1-装饰器" class="headerlink" title="1.装饰器"></a>1.装饰器</h2><ol>
+<li>装饰器的作用:在不改变原有功能代码的基础上,添加额外的功能,如用户验证等</li>
+<li>构成装饰器的条件</li>
 </ol>
+<ul>
+<li>外层函数前套内层函数</li>
+<li>外层函数返回内层函数</li>
+<li>内层函数调用外层函数的参数<br>注意：</li>
+</ul>
+<ul>
+<li>外层函数传入的参数即为被装饰的函数</li>
+<li>添加装饰器后外层装饰的函数意义改变需用wraps不改变使用装饰器原有函数的结构(如<strong>name</strong>, <strong>doc</strong>)<pre><code>from  functools import wraps
+@wraps(func)   
+</code></pre><h2 id="2-蓝图"><a href="#2-蓝图" class="headerlink" title="2.蓝图"></a>2.蓝图</h2></li>
+</ul>
+<ol>
+<li>产生背景: 管理路由地址</li>
+<li>安装: <code>pip install flask-blueprint</code></li>
+<li>使用方法：<br>第一步: <code>blue = Blueprint(&#39;first&#39;, __name__)   @blue.route(&#39;路由地址&#39;)</code><br>第二步: <code>flask对象app.register_blueprint(blueprint=blue)</code></li>
+<li>页面跳转<br>有参跳转：<code>redirect(url_for(&#39;生成蓝图的第一个参数.跳转的函数名称&#39;, 参数名=值, 参数名2=值2))</code><br>无参跳转：<code>redirect(url_for(&#39;生成蓝图的第一个参数.跳转的函数名称&#39;))</code><h2 id="3-模板"><a href="#3-模板" class="headerlink" title="3.模板"></a>3.模板</h2></li>
+<li>父模板<br>定义网站模板的大体框架，定义可以被动态填充内容的block块<br>block块定义: <pre><code>{% block name %}
+{% endblock %}
+</code></pre>注意:block名称不能取同名</li>
+<li>子模板<br>继承父模板: <pre class=" language-{% extends '父模板' %}```"><code class="language-{% extends '父模板' %}```">动态可选择性的填充父模板中定义的block块, 使用
+</code></pre>
+
+  value
+
+<code>`</code></li>
+<li>语法<br>解析标签: <pre><code>{% 标签名 %}
+{% end标签名 %}
+</code></pre>for:  <pre class=" language-{% for a in [] %}  {% else %}  {% endfor %}```"><code class="language-{% for a in [] %}  {% else %}  {% endfor %}```">if: 
+```{% if 判断条件 %}  {% else %} {% endif %}
+</code></pre>
+block:  <pre class=" language-{% block name %}  {% endblock %}```"><code class="language-{% block name %}  {% endblock %}```">解析变量:  ```{{ 变量名 }}
+</code></pre>
+loop:变量<br>loop.index: 从1开始的值<br>loop.index0: 从0开始<br>loop.revindex: 倒序到1结束<br>loop.revindex0: 倒序到0结束<br>loop.first: 第一次循环返回True<br>loop.last: 最后一次循环返回True<br>注解: 注释的符号为<br><code>`</code></li>
+</ol>
+<pre><code>4. 过滤器
+写法: ```{{  变量 | 过滤器 }}
+</code></pre><p>过滤器：safe（字符串过滤器）、length（求长度）、upper（字母大写）</p>
 
             </div>
             <hr>
@@ -509,7 +531,7 @@ Session(app)
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">一念之间</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/03/05/flaskday1/" class="b-link-green">flask基础1</a>
+                    <a href="/2019/03/07/flask2/" class="b-link-green">flask基础2</a>
                 </p>
             </div>
         </div>
@@ -791,7 +813,8 @@ Session(app)
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/03/07/flask2/">
                     <div class="card-image">
@@ -815,9 +838,9 @@ Session(app)
 
 外层函数传入的参数即为被装饰的函数</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -830,6 +853,7 @@ Session(app)
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -848,28 +872,29 @@ Session(app)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/02/28/redis/">
+                <a href="/2019/03/05/flaskday1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="redis基础">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="flask基础1">
                         
-                        <span class="card-title">redis基础</span>
+                        <span class="card-title">flask基础1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1.安装redis [root@iZwz97tbgo9lkabnat2lo8Z ~]# wget http://download.redis.io/releases/redis-3.2.12.tar.gz
-[root@iZwz97tbgo9</div>
+                    <div class="summary">flask1.flask介绍Flask是一个基于Python实现的web开发的’微’框架flask流行的主要原因：S
+a）有非常齐全的官方文档，上手非常方便
+b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/redis/" class="post-category" target="_blank">
-                                    redis
+                            <a href="/categories/flask/" class="post-category" target="_blank">
+                                    flask
                                 </a>
                             
                             
@@ -879,8 +904,8 @@ Session(app)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/redis基础/" target="_blank">
-                        <span class="chip bg-color">redis基础</span>
+                    <a href="/tags/flask基础1/" target="_blank">
+                        <span class="chip bg-color">flask基础1</span>
                     </a>
                     
                 </div>

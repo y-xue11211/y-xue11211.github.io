@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-05T11:29:37.938Z</updated>
+  <updated>2019-03-07T11:24:36.035Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>flask</title>
+    <title>flask基础2</title>
+    <link href="http://yoursite.com/2019/03/07/flask2/"/>
+    <id>http://yoursite.com/2019/03/07/flask2/</id>
+    <published>2019-03-07T10:58:57.946Z</published>
+    <updated>2019-03-07T11:24:36.035Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Flask基础2&quot;&gt;&lt;a href=&quot;#Flask基础2&quot; class=&quot;headerlink&quot; title=&quot;Flask基础2&quot;&gt;&lt;/a&gt;Flask基础2&lt;/h1&gt;&lt;h2 id=&quot;1-装饰器&quot;&gt;&lt;a href=&quot;#1-装饰器&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="flask" scheme="http://yoursite.com/categories/flask/"/>
+    
+    
+      <category term="flask基础2" scheme="http://yoursite.com/tags/flask%E5%9F%BA%E7%A1%802/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flask基础1</title>
     <link href="http://yoursite.com/2019/03/05/flaskday1/"/>
     <id>http://yoursite.com/2019/03/05/flaskday1/</id>
     <published>2019-03-05T01:34:38.080Z</published>
-    <updated>2019-03-05T11:29:37.938Z</updated>
+    <updated>2019-03-07T01:32:15.846Z</updated>
     
     <summary type="html">
     
@@ -38,7 +64,7 @@
       <category term="flask" scheme="http://yoursite.com/categories/flask/"/>
     
     
-      <category term="flask基础" scheme="http://yoursite.com/tags/flask%E5%9F%BA%E7%A1%80/"/>
+      <category term="flask基础1" scheme="http://yoursite.com/tags/flask%E5%9F%BA%E7%A1%801/"/>
     
   </entry>
   
