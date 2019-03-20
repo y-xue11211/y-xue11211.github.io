@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>Django基础</title>
+      <link href="/2019/03/19/Django%E5%9F%BA%E7%A1%80/"/>
+      <url>/2019/03/19/Django%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1·虚拟环境"><a href="#1·虚拟环境" class="headerlink" title="1·虚拟环境"></a>1·虚拟环境</h1><p>创建虚拟环境:<br> <code>virtualenv --no-site-packages -p python.exe路径 环境名</code></p><h1 id="2-安装与使用"><a href="#2-安装与使用" class="headerlink" title="2.安装与使用"></a>2.安装与使用</h1><p>安装: <code>pip install django==2.1.7</code><br>创建django项目: <code>django-admin startproject 项目名day01</code><br>创建django应用: <code>python manage.py startapp 应用名app</code><br>启动，修改ip和端口:<br>&ensp;&ensp;修改端口: python  manage.py runserver 端口号<br>&ensp;&ensp;修改IP和端口: python manage.py runserver IP:端口<br>数据库简单配置与迁移:<br>&ensp;&ensp;修改settings.py文件中DATABASE的数据: NAME,USER,PASSWORD,HOST,PORT,OPTIONS<br>&ensp;&ensp;迁移django默认提供的模型: <code>python manage.py migrate</code><br>管理后台:<br>&ensp;&ensp;创建账号: python manage.py createsuperuser访问: IP:端口/admin/<br>&ensp;&ensp;创建账号: python manage.py createsuperuser创建账号: python manage.py createsuperuser</p><h1 id="3-模型"><a href="#3-模型" class="headerlink" title="3.模型"></a>3.模型</h1><h3 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h3><p>生成迁移文件:  <code>python manage.py makemigrations</code><br>执行迁移文件: <code>python manage.py migrate</code><br>注意: 当第一次迁移django默认提供的表时，直接执行migrate命令即可</p><h3 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h3><p>1.字段定义<br>IntegerField: 整型字段<br>CharField: 字符串<br>BooleanField: 布尔值<br>DateTimeField: 年月日时分秒字段<br>DateField: 年月日<br>TimeField: 时间戳<br>ImageFiled: 图片<br>FloatFiled: 浮点数<br>DecimalField: 浮点数,指定了长度的浮点数<br>TextField: 存文本，texteare<br>AutoField: 自增字段，不用定义<br>2.约束定义<br>max_length: 最大长度<br>min_length: 最小长度<br>unique: 唯一<br>null: 是否为空<br>default: 默认值<br>auto_now_add和auto_now: 互斥</p><h3 id="模型操作"><a href="#模型操作" class="headerlink" title="模型操作"></a>模型操作</h3><p>1.增<br><code>对象.save()</code><br><code>create(字段=值,字段2=值2...)</code><br>2.删<br><code>对象.delete()</code><br><code>filter().delete()</code><br>3.改<br><code>修改的对象.save()</code><br><code>filter().update(字段=值，字段2=值2...)</code><br>4.查<br><code>filter(字段=值)</code><br>get(条件):条件必须成立且查询结果只有一个<br>exclude(条件): 将满足条件的信息全部过滤掉<br>count(): 查询结果的个数<br>values(‘字段’): 将对象的内容序列化成字典、json<br>order_by(‘字段’)：<code>升序: order_by(字段)`</code>降序: order_by(‘-字段’)<code>contains: 包含</code>filter(字段<strong>contains=值)<code>startswith: 以什么开头endswith: 以什么结束大于，大于等于： gt，gte小于，小于等于： lt，lteaggregate: 聚合:Avg，Sum，Count, Max，MinF： 对象两个属性字段，可以进行加减算法:</code>filter(字段1</strong>gt=F（字段2）)`</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Django </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Django基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Tornado基础</title>
+      <link href="/2019/03/18/tornado/"/>
+      <url>/2019/03/18/tornado/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-请求与响应"><a href="#1-请求与响应" class="headerlink" title="1.请求与响应"></a>1.请求与响应</h1><ul><li>请求<br>接收get传递参数:获取请求URL中的参数:<br><code>self.get_argument(name)/ self.get_arguments(name)</code><br><code>self.get_query_argument(name)/ self.get_query_arguments(name)</code><br>接收post传递参数:获取请求体body传递的参数:<br><code>self.get_argument(name)/ self.get_arguments(name)</code><br><code>self.get_body_argument(name) / self.get_body_arguments(name)</code></li><li>响应<br>set_status、set_cookie、clear_cookie等<h1 id="2-Tornado应用"><a href="#2-Tornado应用" class="headerlink" title="2.Tornado应用"></a>2.Tornado应用</h1>获取tornado.web.Application对象：<br>&ensp;&ensp;参数handlers=[(访问路由, 执行方法),]<br>&ensp;&ensp;接听端口: Application对象.listen(端口)<br>执行方法类，需继承tornado.web.RequestHandler<br>&ensp;&ensp;如果处理get请求，则定义def get(self)方法<br>&ensp;&ensp;如果处理post请求，则定义def post(self)方法<br>启动：<code>tornado.ioloop.IOLoop.current().start()</code><h1 id="3-命令行"><a href="#3-命令行" class="headerlink" title="3.命令行"></a>3.命令行</h1>定义默认的监听端口:  <code>define(&#39;port&#39;, default=8080, type=int)</code><br>解析命令行中参数: <code>parse_command_line()</code><br>获取命令行中的port参数: <code>options.port</code><br>启动命令: <code>python  xxx.py --port=端口值</code><h1 id="4-路由定义"><a href="#4-路由定义" class="headerlink" title="4.路由定义"></a>4.路由定义</h1>第一种定义：<br><code>tornado.web.Application(handlers=[(&#39;/days/(\d+)/(\d+)/&#39;), DasyHandler])</code><br><code>def get(self, month, day)</code><br>注意: 路由中的第一个参数，被函数中定义的month接收，路由中的第二个参数，被函数中定义的day接收<br>第二种定义：<br><code>tornado.web.Application(handlers=[(&#39;/days/(?P&lt;name&gt;\d+)/(?P&lt;name2&gt;\d+)/&#39;),])</code><br><code>def get(self, name2, name)</code><br>注意: 路由中的第一个参数取名为name，第二个参数取名为name2<h1 id="5-HTTP行为方法"><a href="#5-HTTP行为方法" class="headerlink" title="5.HTTP行为方法"></a>5.HTTP行为方法</h1>GET： 只用于获取数据<br>POST:  只用于创建数据<br>PUT: 修改某个对象的全部属性<br>PATCH: 修改某个对象的部分属性<br>DELETE: 删除数据<h1 id="6-切入点函数"><a href="#6-切入点函数" class="headerlink" title="6.切入点函数"></a>6.切入点函数</h1>def initialize(): 实例化初始内容，在调用行为方法之前将自动调用<br>def prepare(): 在调用行为方法之前将自动调用<br>def on_finish(): 在调用行为方法之后将自动调用<h1 id="7-模板"><a href="#7-模板" class="headerlink" title="7.模板"></a>7.模板</h1>模板文件路径定义:<br><code>Application(handlers=[], template_path=&#39;指定templates文件夹的路径&#39;)</code><br>获取templates路径:<br><code>os.path.join(os.path.dirname(os.path.abspath(__file__)), &#39;templates&#39;)</code></li></ul><p>父模板挖坑: </p><pre><code>{% block name %}   {% end %}</code></pre><p>子模板基础： </p><pre><code>{% extends  '父模板名称' %}</code></pre><p>模板语法：</p><p>标签:</p><pre><code>{% 标签名 %}  {% end %}</code></pre><p>&ensp;&ensp;if标签:</p><pre><code>{%  if  条件%}  {% end %}、{% if 条件 %}  {% elif 条件%} {% else %}  {% end %}</code></pre><p>&ensp;&ensp;for标签: </p><pre class=" language-{% for 变量 in [] %}"><code class="language-{% for 变量 in [] %}">{% end %}</code></pre><p>&ensp;&ensp;set标签: </p><pre><code>{% set 变量=值 %}</code></pre><p>&ensp;&ensp;while标签： </p><pre><code>{% while 条件%} {% end %}</code></pre><p>&ensp;&ensp;try标签：</p><pre><code>{% try %} {% except %} {% finally %}  {% end %}</code></pre><p>变量:</p><pre><code> {{ 变量名 }}</code></pre><p>注解: </p><pre><code></code></pre><p>静态文件配置与使用<br><code>tornado.web.Application(handlers=[], template_path=&#39;&#39;, static_path=&#39;&#39;)</code><br><code>static_path=os.path.join(os.path.dirname(os.path.abspath(__file__)), &#39;static&#39;)</code><br>导入静态文件: </p><pre><code>href=&#39;/static/css/xxx.css&#39;</code></pre><pre><code>{{ static_url('css/xxx.css') }}</code></pre><h1 id="8-模型"><a href="#8-模型" class="headerlink" title="8.模型"></a>8.模型</h1><ol><li>模型定义: 必须继承于Base = declarative_base(bind=engine)</li><li>数据库连接配置: <code>mysql+pymysql://root:123456@localhost:3306/database</code></li><li>创建连接、引擎: create_engine(连接地址)</li><li>创建会话对象: <pre><code>DbSession = sessionmak(bind=engine)   session=DbSession()</code></pre></li><li>增<pre><code>session.add(对象)   session.commit()</code></pre><pre><code>session.add_all([对象1, 对象2...])  session.commit()</code></pre></li><li>删<pre><code>session.delete(对象)  session.commit()</code></pre><pre><code>filter(条件).delete()   session.commit()</code></pre></li><li>查<pre><code>filter(模型名.字段 == 值)</code></pre><pre><code>filter_by(字段 == 值)</code></pre></li><li>改<br>同增的操作<pre><code>filter(条件).update({&#39;字段1&#39;:值, &#39;字段2&#39;:值.....})</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tornado </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Tornado基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>flask模型</title>
+      <link href="/2019/03/07/flask3/"/>
+      <url>/2019/03/07/flask3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-ORM"><a href="#1-ORM" class="headerlink" title="1.ORM"></a>1.ORM</h1><p>ORM概念: object relationship mapping，对象关系映射</p><h1 id="2-flask-sqlalchemy库"><a href="#2-flask-sqlalchemy库" class="headerlink" title="2.flask-sqlalchemy库"></a>2.flask-sqlalchemy库</h1><p>安装: <code>pip install flask-sqlalchemy</code><br>创建模型</p><pre><code>/# 生成数据库访问对象dbdb = SQLAlchemy()class Student(db.Model):    # 定义id主键，自增字段    id = db.Column(db.Integer, primary_key=True, autoincrement=True)    # 定义不能为空，且唯一的姓名字段    s_name = db.Column(db.String(10), unique=True, nullable=False)    # 定义整形，默认为20的年龄字段    age = db.Column(db.Integer, default=20)</code></pre><p>配置数据库信息:<br>数据库连接格式: <code>mysql+pymysql://root:123456@127.0.0.1:3306/flask9</code><br>sqlalchemy对象<code>db.init_app(flask对象)</code><br>映射:<br>创建: sqlalchemy对象<code>db.create_all()</code><br>删除: sqlalchemy对象<code>db.drop_all()</code></p><h1 id="3-增"><a href="#3-增" class="headerlink" title="3.增"></a>3.增</h1><p><code>db.session.add(插入对象)   db.session.commit()</code></p><h1 id="4-删"><a href="#4-删" class="headerlink" title="4.删"></a>4.删</h1><p><code>db.session.delete(删除对象)   db.session.commit()</code></p><h1 id="5-改"><a href="#5-改" class="headerlink" title="5.改"></a>5.改</h1><p><code>db.session.add(插入对象)   db.session.commit()</code></p><h1 id="6-查"><a href="#6-查" class="headerlink" title="6.查"></a>6.查</h1><p>query: 管理器—-是查询的意思，为了在数据库中寻找某一特定文件、网站、记录或一系列记录，由搜索引擎或数据库送出的消息。<br>filter(模型名.字段 == 值)<br>filter_by(字段 = 值)<br>first()： 查询结果中的第一个数据对象<br>all()： 查询结果中的所有数据对象，返回列表<br>get(): 查询主键所在行的对象信息<br>order_by(): 排序</p><ol><li>sqlalchemy 1.3版本之前写法:<br>&emsp;&emsp;&emsp;升序: order_by(‘字段’)<br>&emsp;&emsp;&emsp;降序: order_by(‘-字段’)</li><li>sqlalchemy 1.3版本:<br>&emsp;&emsp;&emsp;升序: order_by(模型名.字段)<br>&emsp;&emsp;&emsp;降序: order_by(-模型名.字段)<h1 id="7-关联关系"><a href="#7-关联关系" class="headerlink" title="7.关联关系"></a>7.关联关系</h1>一对多：<br>重点在班级表中关联关系的定义: <code>stus = db.relationship(&#39;Student&#39;, backref=&#39;p&#39;)</code><br>班级查询学生: 班级对象.stus<br>学生查询班级: 学生对象.backref<br>多对多：<br>定义:<code>stus = db.relationship(&#39;Student&#39;, secondary=c_s, backref=&#39;cou&#39;, lazy=&#39;dynamic&#39;)</code><br>学生查询课程: 学生对象.backref<br>课程查询学生: 课程对象.stus<br>添加/删除：append/remove</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> flask </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> flask模型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>flask基础2</title>
       <link href="/2019/03/07/flask2/"/>
       <url>/2019/03/07/flask2/</url>

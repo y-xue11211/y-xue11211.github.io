@@ -4,18 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="flask基础2, 一念之间">
-    <meta name="description" content="Flask基础21.装饰器
-装饰器的作用:在不改变原有功能代码的基础上,添加额外的功能,如用户验证等
-构成装饰器的条件
-
-
-外层函数前套内层函数
-外层函数返回内层函数
-内层函数调用外层函数的参数注意：
-
-
-外层函数传入的参数即为被装饰的函数">
+    <meta name="keywords" content="Django基础, 一念之间">
+    <meta name="description" content="1·虚拟环境创建虚拟环境: virtualenv --no-site-packages -p python.exe路径 环境名
+2.安装与使用安装: pip install django==2.1.7创建django项目: django-a">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>flask基础2 | 一念之间</title>
+    <title>Django基础 | 一念之间</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -288,7 +279,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        flask基础2
+                        Django基础
                     </div>
                 </div>
             </div>
@@ -310,8 +301,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/flask基础2/" target="_blank">
-                                <span class="chip bg-color">flask基础2</span>
+                            <a href="/tags/Django基础/" target="_blank">
+                                <span class="chip bg-color">Django基础</span>
                             </a>
                         
                     </div>
@@ -322,8 +313,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/flask/" class="post-category" target="_blank">
-                                flask
+                            <a href="/categories/Django/" class="post-category" target="_blank">
+                                Django
                             </a>
                         
                     </div>
@@ -334,7 +325,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-07
+                    2019-03-19
                 </div>
 
                 
@@ -350,47 +341,16 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Flask基础2"><a href="#Flask基础2" class="headerlink" title="Flask基础2"></a>Flask基础2</h1><h2 id="1-装饰器"><a href="#1-装饰器" class="headerlink" title="1.装饰器"></a>1.装饰器</h2><ol>
-<li>装饰器的作用:在不改变原有功能代码的基础上,添加额外的功能,如用户验证等</li>
-<li>构成装饰器的条件</li>
-</ol>
-<ul>
-<li>外层函数前套内层函数</li>
-<li>外层函数返回内层函数</li>
-<li>内层函数调用外层函数的参数<br>注意：</li>
-</ul>
-<ul>
-<li>外层函数传入的参数即为被装饰的函数</li>
-<li>添加装饰器后外层装饰的函数意义改变需用wraps不改变使用装饰器原有函数的结构(如<strong>name</strong>, <strong>doc</strong>)<pre><code>from  functools import wraps
-@wraps(func)   
-</code></pre><h2 id="2-蓝图"><a href="#2-蓝图" class="headerlink" title="2.蓝图"></a>2.蓝图</h2></li>
-</ul>
-<ol>
-<li>产生背景: 管理路由地址</li>
-<li>安装: <code>pip install flask-blueprint</code></li>
-<li>使用方法：<br>第一步: <code>blue = Blueprint(&#39;first&#39;, __name__)   @blue.route(&#39;路由地址&#39;)</code><br>第二步: <code>flask对象app.register_blueprint(blueprint=blue)</code></li>
-<li>页面跳转<br>有参跳转：<code>redirect(url_for(&#39;生成蓝图的第一个参数.跳转的函数名称&#39;, 参数名=值, 参数名2=值2))</code><br>无参跳转：<code>redirect(url_for(&#39;生成蓝图的第一个参数.跳转的函数名称&#39;))</code><h2 id="3-模板"><a href="#3-模板" class="headerlink" title="3.模板"></a>3.模板</h2></li>
-<li>父模板<br>定义网站模板的大体框架，定义可以被动态填充内容的block块<br>block块定义: <pre><code>{% block name %}
-{% endblock %}
-</code></pre>注意:block名称不能取同名</li>
-<li>子模板<br>继承父模板: <pre class=" language-{% extends '父模板' %}```"><code class="language-{% extends '父模板' %}```">动态可选择性的填充父模板中定义的block块, 使用
-</code></pre>
-
-  value
-
-<code>`</code></li>
-<li>语法<br>解析标签: <pre><code>{% 标签名 %}
-{% end标签名 %}
-</code></pre>for:  <pre class=" language-{% for a in [] %}  {% else %}  {% endfor %}```"><code class="language-{% for a in [] %}  {% else %}  {% endfor %}```">if: 
-```{% if 判断条件 %}  {% else %} {% endif %}
-</code></pre>
-block:  <pre class=" language-{% block name %}  {% endblock %}```"><code class="language-{% block name %}  {% endblock %}```">解析变量:  ```{{ 变量名 }}
-</code></pre>
-loop:变量<br>loop.index: 从1开始的值<br>loop.index0: 从0开始<br>loop.revindex: 倒序到1结束<br>loop.revindex0: 倒序到0结束<br>loop.first: 第一次循环返回True<br>loop.last: 最后一次循环返回True<br>注解: 注释的符号为<br><code>`</code></li>
-</ol>
-<pre><code>4. 过滤器
-写法: ```{{  变量 | 过滤器 }}
-</code></pre><p>过滤器：safe（字符串过滤器）、length（求长度）、upper（字母大写）</p>
+                <h1 id="1·虚拟环境"><a href="#1·虚拟环境" class="headerlink" title="1·虚拟环境"></a>1·虚拟环境</h1><p>创建虚拟环境:<br> <code>virtualenv --no-site-packages -p python.exe路径 环境名</code></p>
+<h1 id="2-安装与使用"><a href="#2-安装与使用" class="headerlink" title="2.安装与使用"></a>2.安装与使用</h1><p>安装: <code>pip install django==2.1.7</code><br>创建django项目: <code>django-admin startproject 项目名day01</code><br>创建django应用: <code>python manage.py startapp 应用名app</code><br>启动，修改ip和端口:<br>&ensp;&ensp;修改端口: python  manage.py runserver 端口号<br>&ensp;&ensp;修改IP和端口: python manage.py runserver IP:端口<br>数据库简单配置与迁移:<br>&ensp;&ensp;修改settings.py文件中DATABASE的数据: NAME,USER,PASSWORD,HOST,PORT,OPTIONS<br>&ensp;&ensp;迁移django默认提供的模型: <code>python manage.py migrate</code><br>管理后台:<br>&ensp;&ensp;创建账号: python manage.py createsuperuser访问: IP:端口/admin/<br>&ensp;&ensp;创建账号: python manage.py createsuperuser创建账号: python manage.py createsuperuser</p>
+<h1 id="3-模型"><a href="#3-模型" class="headerlink" title="3.模型"></a>3.模型</h1><h3 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h3><p>生成迁移文件:  <code>python manage.py makemigrations</code><br>执行迁移文件: <code>python manage.py migrate</code><br>注意: 当第一次迁移django默认提供的表时，直接执行migrate命令即可</p>
+<h3 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h3><p>1.字段定义<br>IntegerField: 整型字段<br>CharField: 字符串<br>BooleanField: 布尔值<br>DateTimeField: 年月日时分秒字段<br>DateField: 年月日<br>TimeField: 时间戳<br>ImageFiled: 图片<br>FloatFiled: 浮点数<br>DecimalField: 浮点数,指定了长度的浮点数<br>TextField: 存文本，texteare<br>AutoField: 自增字段，不用定义<br>2.约束定义<br>max_length: 最大长度<br>min_length: 最小长度<br>unique: 唯一<br>null: 是否为空<br>default: 默认值<br>auto_now_add和auto_now: 互斥</p>
+<h3 id="模型操作"><a href="#模型操作" class="headerlink" title="模型操作"></a>模型操作</h3><p>1.增<br><code>对象.save()</code><br><code>create(字段=值,字段2=值2...)</code><br>2.删<br><code>对象.delete()</code><br><code>filter().delete()</code><br>3.改<br><code>修改的对象.save()</code><br><code>filter().update(字段=值，字段2=值2...)</code><br>4.查<br><code>filter(字段=值)</code><br>get(条件):条件必须成立且查询结果只有一个<br>exclude(条件): 将满足条件的信息全部过滤掉<br>count(): 查询结果的个数<br>values(‘字段’): 将对象的内容序列化成字典、json<br>order_by(‘字段’)：<code>升序: order_by(字段)`</code>降序: order_by(‘-字段’)<code>contains: 包含</code>filter(字段<strong>contains=值)<code>startswith: 以什么开头
+endswith: 以什么结束
+大于，大于等于： gt，gte
+小于，小于等于： lt，lte
+aggregate: 聚合:Avg，Sum，Count, Max，Min
+F： 对象两个属性字段，可以进行加减算法:</code>filter(字段1</strong>gt=F（字段2）)`</p>
 
             </div>
             <hr>
@@ -531,7 +491,7 @@ loop:变量<br>loop.index: 从1开始的值<br>loop.index0: 从0开始<br>loop.r
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">一念之间</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/03/07/flask2/" class="b-link-green">flask基础2</a>
+                    <a href="/2019/03/19/Django基础/" class="b-link-green">Django基础</a>
                 </p>
             </div>
         </div>
@@ -813,43 +773,43 @@ loop:变量<br>loop.index: 从1开始的值<br>loop.index0: 从0开始<br>loop.r
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/03/07/flask3/">
+                <a href="/2019/03/19/Django基础/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="flask模型">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Django基础">
                         
-                        <span class="card-title">flask模型</span>
+                        <span class="card-title">Django基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1.ORMORM概念: object relationship mapping，对象关系映射
-2.flask-sqlalchemy库安装: pip install flask-sqlalchemy创建模型
-/# 生成数据库访问对象db
-db</div>
+                    <div class="summary">1·虚拟环境创建虚拟环境: virtualenv --no-site-packages -p python.exe路径 环境名
+2.安装与使用安装: pip install django==2.1.7创建django项目: django-a</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/flask/" class="post-category" target="_blank">
-                                    flask
+                            <a href="/categories/Django/" class="post-category" target="_blank">
+                                    Django
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/flask模型/" target="_blank">
-                        <span class="chip bg-color">flask模型</span>
+                    <a href="/tags/Django基础/" target="_blank">
+                        <span class="chip bg-color">Django基础</span>
                     </a>
                     
                 </div>
@@ -863,29 +823,28 @@ db</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/05/flaskday1/">
+                <a href="/2019/03/18/tornado/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="flask基础1">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Tornado基础">
                         
-                        <span class="card-title">flask基础1</span>
+                        <span class="card-title">Tornado基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">flask1.flask介绍Flask是一个基于Python实现的web开发的’微’框架flask流行的主要原因：S
-a）有非常齐全的官方文档，上手非常方便
-b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动</div>
+                    <div class="summary">1.请求与响应
+请求接收get传递参数:获取请求URL中的参数:self.get_argument(name)/ self.get_arguments(name)self.get_query_argument(name)/ self.get</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/flask/" class="post-category" target="_blank">
-                                    flask
+                            <a href="/categories/Tornado/" class="post-category" target="_blank">
+                                    Tornado
                                 </a>
                             
                             
@@ -895,8 +854,8 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/flask基础1/" target="_blank">
-                        <span class="chip bg-color">flask基础1</span>
+                    <a href="/tags/Tornado基础/" target="_blank">
+                        <span class="chip bg-color">Tornado基础</span>
                     </a>
                     
                 </div>

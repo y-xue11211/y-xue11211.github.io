@@ -4,18 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="flask基础2, 一念之间">
-    <meta name="description" content="Flask基础21.装饰器
-装饰器的作用:在不改变原有功能代码的基础上,添加额外的功能,如用户验证等
-构成装饰器的条件
-
-
-外层函数前套内层函数
-外层函数返回内层函数
-内层函数调用外层函数的参数注意：
-
-
-外层函数传入的参数即为被装饰的函数">
+    <meta name="keywords" content="flask模型, 一念之间">
+    <meta name="description" content="1.ORMORM概念: object relationship mapping，对象关系映射
+2.flask-sqlalchemy库安装: pip install flask-sqlalchemy创建模型
+/# 生成数据库访问对象db
+db">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>flask基础2 | 一念之间</title>
+    <title>flask模型 | 一念之间</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -282,13 +275,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        flask基础2
+                        flask模型
                     </div>
                 </div>
             </div>
@@ -310,8 +303,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/flask基础2/" target="_blank">
-                                <span class="chip bg-color">flask基础2</span>
+                            <a href="/tags/flask模型/" target="_blank">
+                                <span class="chip bg-color">flask模型</span>
                             </a>
                         
                     </div>
@@ -350,47 +343,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Flask基础2"><a href="#Flask基础2" class="headerlink" title="Flask基础2"></a>Flask基础2</h1><h2 id="1-装饰器"><a href="#1-装饰器" class="headerlink" title="1.装饰器"></a>1.装饰器</h2><ol>
-<li>装饰器的作用:在不改变原有功能代码的基础上,添加额外的功能,如用户验证等</li>
-<li>构成装饰器的条件</li>
-</ol>
-<ul>
-<li>外层函数前套内层函数</li>
-<li>外层函数返回内层函数</li>
-<li>内层函数调用外层函数的参数<br>注意：</li>
-</ul>
-<ul>
-<li>外层函数传入的参数即为被装饰的函数</li>
-<li>添加装饰器后外层装饰的函数意义改变需用wraps不改变使用装饰器原有函数的结构(如<strong>name</strong>, <strong>doc</strong>)<pre><code>from  functools import wraps
-@wraps(func)   
-</code></pre><h2 id="2-蓝图"><a href="#2-蓝图" class="headerlink" title="2.蓝图"></a>2.蓝图</h2></li>
-</ul>
+                <h1 id="1-ORM"><a href="#1-ORM" class="headerlink" title="1.ORM"></a>1.ORM</h1><p>ORM概念: object relationship mapping，对象关系映射</p>
+<h1 id="2-flask-sqlalchemy库"><a href="#2-flask-sqlalchemy库" class="headerlink" title="2.flask-sqlalchemy库"></a>2.flask-sqlalchemy库</h1><p>安装: <code>pip install flask-sqlalchemy</code><br>创建模型</p>
+<pre><code>/# 生成数据库访问对象db
+db = SQLAlchemy()
+
+class Student(db.Model):
+    # 定义id主键，自增字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 定义不能为空，且唯一的姓名字段
+    s_name = db.Column(db.String(10), unique=True, nullable=False)
+    # 定义整形，默认为20的年龄字段
+    age = db.Column(db.Integer, default=20)
+</code></pre><p>配置数据库信息:<br>数据库连接格式: <code>mysql+pymysql://root:123456@127.0.0.1:3306/flask9</code><br>sqlalchemy对象<code>db.init_app(flask对象)</code><br>映射:<br>创建: sqlalchemy对象<code>db.create_all()</code><br>删除: sqlalchemy对象<code>db.drop_all()</code></p>
+<h1 id="3-增"><a href="#3-增" class="headerlink" title="3.增"></a>3.增</h1><p><code>db.session.add(插入对象)   db.session.commit()</code></p>
+<h1 id="4-删"><a href="#4-删" class="headerlink" title="4.删"></a>4.删</h1><p><code>db.session.delete(删除对象)   db.session.commit()</code></p>
+<h1 id="5-改"><a href="#5-改" class="headerlink" title="5.改"></a>5.改</h1><p><code>db.session.add(插入对象)   db.session.commit()</code></p>
+<h1 id="6-查"><a href="#6-查" class="headerlink" title="6.查"></a>6.查</h1><p>query: 管理器—-是查询的意思，为了在数据库中寻找某一特定文件、网站、记录或一系列记录，由搜索引擎或数据库送出的消息。<br>filter(模型名.字段 == 值)<br>filter_by(字段 = 值)<br>first()： 查询结果中的第一个数据对象<br>all()： 查询结果中的所有数据对象，返回列表<br>get(): 查询主键所在行的对象信息<br>order_by(): 排序</p>
 <ol>
-<li>产生背景: 管理路由地址</li>
-<li>安装: <code>pip install flask-blueprint</code></li>
-<li>使用方法：<br>第一步: <code>blue = Blueprint(&#39;first&#39;, __name__)   @blue.route(&#39;路由地址&#39;)</code><br>第二步: <code>flask对象app.register_blueprint(blueprint=blue)</code></li>
-<li>页面跳转<br>有参跳转：<code>redirect(url_for(&#39;生成蓝图的第一个参数.跳转的函数名称&#39;, 参数名=值, 参数名2=值2))</code><br>无参跳转：<code>redirect(url_for(&#39;生成蓝图的第一个参数.跳转的函数名称&#39;))</code><h2 id="3-模板"><a href="#3-模板" class="headerlink" title="3.模板"></a>3.模板</h2></li>
-<li>父模板<br>定义网站模板的大体框架，定义可以被动态填充内容的block块<br>block块定义: <pre><code>{% block name %}
-{% endblock %}
-</code></pre>注意:block名称不能取同名</li>
-<li>子模板<br>继承父模板: <pre class=" language-{% extends '父模板' %}```"><code class="language-{% extends '父模板' %}```">动态可选择性的填充父模板中定义的block块, 使用
-</code></pre>
-
-  value
-
-<code>`</code></li>
-<li>语法<br>解析标签: <pre><code>{% 标签名 %}
-{% end标签名 %}
-</code></pre>for:  <pre class=" language-{% for a in [] %}  {% else %}  {% endfor %}```"><code class="language-{% for a in [] %}  {% else %}  {% endfor %}```">if: 
-```{% if 判断条件 %}  {% else %} {% endif %}
-</code></pre>
-block:  <pre class=" language-{% block name %}  {% endblock %}```"><code class="language-{% block name %}  {% endblock %}```">解析变量:  ```{{ 变量名 }}
-</code></pre>
-loop:变量<br>loop.index: 从1开始的值<br>loop.index0: 从0开始<br>loop.revindex: 倒序到1结束<br>loop.revindex0: 倒序到0结束<br>loop.first: 第一次循环返回True<br>loop.last: 最后一次循环返回True<br>注解: 注释的符号为<br><code>`</code></li>
+<li>sqlalchemy 1.3版本之前写法:<br>&emsp;&emsp;&emsp;升序: order_by(‘字段’)<br>&emsp;&emsp;&emsp;降序: order_by(‘-字段’)</li>
+<li>sqlalchemy 1.3版本:<br>&emsp;&emsp;&emsp;升序: order_by(模型名.字段)<br>&emsp;&emsp;&emsp;降序: order_by(-模型名.字段)<h1 id="7-关联关系"><a href="#7-关联关系" class="headerlink" title="7.关联关系"></a>7.关联关系</h1>一对多：<br>重点在班级表中关联关系的定义: <code>stus = db.relationship(&#39;Student&#39;, backref=&#39;p&#39;)</code><br>班级查询学生: 班级对象.stus<br>学生查询班级: 学生对象.backref<br>多对多：<br>定义:<code>stus = db.relationship(&#39;Student&#39;, secondary=c_s, backref=&#39;cou&#39;, lazy=&#39;dynamic&#39;)</code><br>学生查询课程: 学生对象.backref<br>课程查询学生: 课程对象.stus<br>添加/删除：append/remove</li>
 </ol>
-<pre><code>4. 过滤器
-写法: ```{{  变量 | 过滤器 }}
-</code></pre><p>过滤器：safe（字符串过滤器）、length（求长度）、upper（字母大写）</p>
 
             </div>
             <hr>
@@ -531,7 +504,7 @@ loop:变量<br>loop.index: 从1开始的值<br>loop.index0: 从0开始<br>loop.r
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">一念之间</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/03/07/flask2/" class="b-link-green">flask基础2</a>
+                    <a href="/2019/03/07/flask3/" class="b-link-green">flask模型</a>
                 </p>
             </div>
         </div>
@@ -815,30 +788,28 @@ loop:变量<br>loop.index: 从1开始的值<br>loop.index0: 从0开始<br>loop.r
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/03/07/flask3/">
+                <a href="/2019/03/18/tornado/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="flask模型">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Tornado基础">
                         
-                        <span class="card-title">flask模型</span>
+                        <span class="card-title">Tornado基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1.ORMORM概念: object relationship mapping，对象关系映射
-2.flask-sqlalchemy库安装: pip install flask-sqlalchemy创建模型
-/# 生成数据库访问对象db
-db</div>
+                    <div class="summary">1.请求与响应
+请求接收get传递参数:获取请求URL中的参数:self.get_argument(name)/ self.get_arguments(name)self.get_query_argument(name)/ self.get</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-07
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-18
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/flask/" class="post-category" target="_blank">
-                                    flask
+                            <a href="/categories/Tornado/" class="post-category" target="_blank">
+                                    Tornado
                                 </a>
                             
                             
@@ -848,8 +819,8 @@ db</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/flask模型/" target="_blank">
-                        <span class="chip bg-color">flask模型</span>
+                    <a href="/tags/Tornado基础/" target="_blank">
+                        <span class="chip bg-color">Tornado基础</span>
                     </a>
                     
                 </div>
@@ -863,22 +834,30 @@ db</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/05/flaskday1/">
+                <a href="/2019/03/07/flask2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="flask基础1">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="flask基础2">
                         
-                        <span class="card-title">flask基础1</span>
+                        <span class="card-title">flask基础2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">flask1.flask介绍Flask是一个基于Python实现的web开发的’微’框架flask流行的主要原因：S
-a）有非常齐全的官方文档，上手非常方便
-b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动</div>
+                    <div class="summary">Flask基础21.装饰器
+装饰器的作用:在不改变原有功能代码的基础上,添加额外的功能,如用户验证等
+构成装饰器的条件
+
+
+外层函数前套内层函数
+外层函数返回内层函数
+内层函数调用外层函数的参数注意：
+
+
+外层函数传入的参数即为被装饰的函数</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-07
                             </span>
                         <span class="publish-author">
                             
@@ -895,8 +874,8 @@ b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/flask基础1/" target="_blank">
-                        <span class="chip bg-color">flask基础1</span>
+                    <a href="/tags/flask基础2/" target="_blank">
+                        <span class="chip bg-color">flask基础2</span>
                     </a>
                     
                 </div>

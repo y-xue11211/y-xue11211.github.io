@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-07T11:24:36.035Z</updated>
+  <updated>2019-03-19T13:00:28.905Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django基础</title>
+    <link href="http://yoursite.com/2019/03/19/Django%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2019/03/19/Django基础/</id>
+    <published>2019-03-19T11:55:34.084Z</published>
+    <updated>2019-03-19T13:00:28.905Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1·虚拟环境&quot;&gt;&lt;a href=&quot;#1·虚拟环境&quot; class=&quot;headerlink&quot; title=&quot;1·虚拟环境&quot;&gt;&lt;/a&gt;1·虚拟环境&lt;/h1&gt;&lt;p&gt;创建虚拟环境:&lt;br&gt; &lt;code&gt;virtualenv --no-site-packages -p
+        
+      
+    
+    </summary>
+    
+      <category term="Django" scheme="http://yoursite.com/categories/Django/"/>
+    
+    
+      <category term="Django基础" scheme="http://yoursite.com/tags/Django%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tornado基础</title>
+    <link href="http://yoursite.com/2019/03/18/tornado/"/>
+    <id>http://yoursite.com/2019/03/18/tornado/</id>
+    <published>2019-03-18T11:31:10.615Z</published>
+    <updated>2019-03-19T11:53:10.440Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-请求与响应&quot;&gt;&lt;a href=&quot;#1-请求与响应&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Tornado" scheme="http://yoursite.com/categories/Tornado/"/>
+    
+    
+      <category term="Tornado基础" scheme="http://yoursite.com/tags/Tornado%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flask模型</title>
+    <link href="http://yoursite.com/2019/03/07/flask3/"/>
+    <id>http://yoursite.com/2019/03/07/flask3/</id>
+    <published>2019-03-07T11:48:24.854Z</published>
+    <updated>2019-03-18T11:27:42.695Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-ORM&quot;&gt;&lt;a href=&quot;#1-ORM&quot; class=&quot;headerlink&quot; title=&quot;1.ORM&quot;&gt;&lt;/a&gt;1.ORM&lt;/h1&gt;&lt;p&gt;ORM概念: object relationship mapping，对象关系映射&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="flask" scheme="http://yoursite.com/categories/flask/"/>
+    
+    
+      <category term="flask模型" scheme="http://yoursite.com/tags/flask%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>flask基础2</title>
