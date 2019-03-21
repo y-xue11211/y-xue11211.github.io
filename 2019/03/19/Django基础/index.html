@@ -432,7 +432,40 @@ class B():
 <li>re_path<br>/(?P&lt;参数名&gt;\d+)/(?P&lt;参数名&gt;\w+)/</li>
 </ul>
 <p>include: 拆分路由地址，将不同应用的URL文件进行拆分</p>
+<h1 id="7-请求与响应"><a href="#7-请求与响应" class="headerlink" title="7.请求与响应"></a>7.请求与响应</h1><h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><p>method: 判断请求方式，主要GET/POST<br>path: 获取访问的路由地址<br>FILES：获取图片文件的信息<br>GET：获取请求get方式的数据<code>get()</code> <code>getlist()</code><br>POST： 获取请求post方式的数据<br>COOKIES: cookie内容<br>session: 存储在服务端的数据</p>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p>跳转: HttpResponseRedirect()<br>无参：</p>
+<pre><code>HttpResponseRedirect(reverse(&#39;namespace:name&#39;))
+</code></pre><p>有参：</p>
+<pre><code>HttpResponseRedirect(reverse(&#39;namespace:name&#39;，kwargs={&#39;参数名&#39;: 值 }))
+HTTPResponseRedirect(reverse(&#39;namespace:name&#39;，args=(值，)))
+</code></pre><p>页面解析:</p>
+<pre><code>{% url ‘namespace：name’值1 值2 值3... %}
+</code></pre><p>JsonResponse(): 响应json格式的数据<br>HttpResponse(字符串)<br>render(页面)</p>
+<h1 id="8-用户USER"><a href="#8-用户USER" class="headerlink" title="8.用户USER"></a>8.用户USER</h1><h3 id="使用django自带的USER模块"><a href="#使用django自带的USER模块" class="headerlink" title="使用django自带的USER模块"></a>使用django自带的USER模块</h3><p>注册: create_user()<br>校验: authenticate(username,password)<br>登录: auth.login()<br>退出: auth.logout()<br>装饰器: login_required()</p>
+<h3 id="自定义USER模块"><a href="#自定义USER模块" class="headerlink" title="自定义USER模块"></a>自定义USER模块</h3><p>登录: request.session[‘user_id’] = user.id<br>退出:</p>
+<pre><code>request.session.flush()
+request.session.delete(session_key)
+del request.session[&#39;user_id&#39;]
+</code></pre><p>装饰器</p>
+<pre><code>from django.http import HttpResponseRedirect
+from django.urls import reverse
 
+from user.models import MyUser
+
+
+def is_login(func):
+
+    def check(request):
+        # 登录校验
+        if &#39;user_id&#39; in request.session:
+            user = MyUser.objects.get(pk=request.session[&#39;user_id&#39;])
+            request.user = user
+            return func(request)
+        else:
+            return HttpResponseRedirect(reverse(&#39;user:my_login&#39;))
+
+    return check
+</code></pre>
             </div>
             <hr>
 
